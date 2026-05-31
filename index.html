@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OIL HUB — 통합 유류산업 인텔리전스</title>
+  <meta name="description" content="OIL PULSE 뉴스 브리핑 · 유가 대시보드 · 주유소 신규개발 노트를 한곳에서." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- backdrop for mobile drawer -->
+  <div class="scrim" id="scrim" aria-hidden="true"></div>
+
+  <div class="app">
+    <!-- ===================== SIDEBAR ===================== -->
+    <aside class="sidebar" id="sidebar" aria-label="주 메뉴">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <span class="pulse-ring"></span>
+          <span class="pulse-ring"></span>
+          <span class="pulse-core"></span>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">OIL<em>HUB</em></span>
+          <span class="brand-sub">통합 유류산업 인텔리전스</span>
+        </div>
+      </div>
+
+      <nav class="nav" id="nav" aria-label="섹션">
+        <button class="nav-item" data-view="news" type="button">
+          <span class="nav-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5h13v14H6a2 2 0 0 1-2-2V5Z"/><path d="M17 8h3v9a2 2 0 0 1-2 2"/><path d="M7 8h7M7 11h7M7 14h5"/></svg>
+          </span>
+          <span class="nav-body">
+            <span class="nav-title">OIL PULSE</span>
+            <span class="nav-desc">유류산업 뉴스 브리핑</span>
+          </span>
+          <span class="nav-dot" aria-hidden="true"></span>
+        </button>
+
+        <button class="nav-item" data-view="dashboard" type="button">
+          <span class="nav-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M7 16l3.5-4 3 2.5L20 7"/></svg>
+          </span>
+          <span class="nav-body">
+            <span class="nav-title">유가 대시보드</span>
+            <span class="nav-desc">국제유가 · 두바이유 추이</span>
+          </span>
+          <span class="nav-dot" aria-hidden="true"></span>
+        </button>
+
+        <button class="nav-item" data-view="station" type="button">
+          <span class="nav-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 21V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v16"/><path d="M4 21h12"/><path d="M8 8h4"/><path d="M15 9l3 1.5V17a2 2 0 0 0 2 2"/></svg>
+          </span>
+          <span class="nav-body">
+            <span class="nav-title">주유소 신규개발 노트</span>
+            <span class="nav-desc">신규 부지 개발 검토</span>
+          </span>
+          <span class="nav-dot" aria-hidden="true"></span>
+        </button>
+      </nav>
+
+      <div class="side-foot">
+        <div class="status-row">
+          <span class="live-dot"></span>
+          <span id="clock">--:--:--</span>
+        </div>
+        <p class="side-note"></p>
+      </div>
+    </aside>
+
+    <!-- ===================== MAIN ===================== -->
+    <main class="main">
+      <header class="topbar">
+        <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="메뉴 열기/닫기">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+
+        <div class="topbar-title">
+          <span class="crumb">OIL HUB</span>
+          <span class="crumb-sep">/</span>
+          <span class="crumb-current" id="viewTitle">OIL PULSE</span>
+        </div>
+
+        <div class="topbar-actions">
+          <button class="icon-btn" id="reloadBtn" type="button" aria-label="새로고침" title="현재 모듈 새로고침">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20 11a8 8 0 1 0-.5 4"/><path d="M20 5v6h-6"/></svg>
+          </button>
+          <a class="ext-btn" id="extLink" href="#" target="_blank" rel="noopener noreferrer">
+            <span>새 탭에서 열기</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 5h5v5"/><path d="M19 5l-8 8"/><path d="M19 14v3a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h3"/></svg>
+          </a>
+        </div>
+      </header>
+
+      <section class="stage" id="stage" aria-live="polite">
+        <!-- iframes injected here by app.js -->
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
