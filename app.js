@@ -22,6 +22,7 @@
       station: {
         title: '주유소 신규개발 노트',
         url: 'https://newgasstation.vercel.app/',
+        external: true,
         loadMsg: 'Loading development notes',
       },
     };
@@ -91,6 +92,13 @@
     /* ---------- activate a view ---------- */
     function show(id, fromHash) {
       if (!VIEWS[id]) id = DEFAULT_VIEW;
+      // external modules need first-party cookies (login). Open in a new tab
+      // instead of an iframe, where third-party cookies are blocked.
+      if (VIEWS[id].external) {
+        window.open(VIEWS[id].url, '_blank', 'noopener');
+        closeDrawer();
+        return;
+      }
       if (id === current) {
         closeDrawer();
         return;
