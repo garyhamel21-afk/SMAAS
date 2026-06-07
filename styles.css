@@ -89,6 +89,17 @@
     padding: 4px 8px 22px;
     border-bottom: 1px solid var(--line);
     margin-bottom: 18px;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    border-radius: 10px 10px 0 0;
+    transition: opacity .15s ease;
+  }
+  .brand:hover { opacity: .82; }
+  .brand:active { opacity: .65; }
+  .brand:focus-visible {
+    outline: 2px solid var(--green);
+    outline-offset: 3px;
   }
   
   .brand-mark {
@@ -404,17 +415,18 @@
   /* ===================== MOBILE DRAWER ===================== */
   .scrim {
     position: fixed; inset: 0;
-    background: rgba(2,7,20,.6);
-    backdrop-filter: blur(2px);
+    background: rgba(2,7,20,.62);
     opacity: 0;
     visibility: hidden;
     transition: opacity .25s ease;
-    z-index: 25;
+    z-index: 25;        /* inside .app, below .sidebar (z-30) so menu stays tappable */
+    display: none;      /* off entirely on desktop; enabled in mobile media query */
   }
   
   @media (max-width: 860px) {
     .app { grid-template-columns: 1fr; }
     .menu-btn { display: grid; }
+    .scrim { display: block; }
   
     .sidebar {
       position: fixed;

@@ -11,13 +11,13 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- backdrop for mobile drawer -->
-  <div class="scrim" id="scrim" aria-hidden="true"></div>
-
   <div class="app">
+    <!-- backdrop for mobile drawer (inside .app so it sits below the sidebar) -->
+    <div class="scrim" id="scrim" aria-hidden="true"></div>
+
     <!-- ===================== SIDEBAR ===================== -->
     <aside class="sidebar" id="sidebar" aria-label="주 메뉴">
-      <div class="brand">
+      <div class="brand" id="brandHome" role="button" tabindex="0" aria-label="OIL HUB 첫 화면(OIL PULSE)으로 이동">
         <div class="brand-mark" aria-hidden="true">
           <span class="pulse-ring"></span>
           <span class="pulse-ring"></span>
@@ -47,7 +47,7 @@
           </span>
           <span class="nav-body">
             <span class="nav-title">유가 대시보드</span>
-            <span class="nav-desc">국제유가 · 두바이유 추이</span>
+            <span class="nav-desc">유가 및 환율</span>
           </span>
           <span class="nav-dot" aria-hidden="true"></span>
         </button>
@@ -58,7 +58,7 @@
           </span>
           <span class="nav-body">
             <span class="nav-title">주유소 신규개발 노트</span>
-            <span class="nav-desc">신규 부지 개발 검토</span>
+            <span class="nav-desc">신규 주유소 개발 검토</span>
           </span>
           <span class="nav-dot" aria-hidden="true"></span>
         </button>
@@ -69,7 +69,7 @@
           <span class="live-dot"></span>
           <span id="clock">--:--:--</span>
         </div>
-        <p class="side-note"></p>
+        <p class="side-note">세 개의 모듈을 하나의 콘솔에서.</p>
       </div>
     </aside>
 

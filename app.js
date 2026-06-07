@@ -22,7 +22,6 @@
       station: {
         title: '주유소 신규개발 노트',
         url: 'https://newgasstation.vercel.app/',
-        external: true,
         loadMsg: 'Loading development notes',
       },
     };
@@ -36,6 +35,7 @@
     const reloadBtn = document.getElementById('reloadBtn');
     const menuBtn   = document.getElementById('menuBtn');
     const scrim     = document.getElementById('scrim');
+    const brandHome = document.getElementById('brandHome');
   
     // holds { wrapper, iframe, loaded } per view id once created
     const mounted = {};
@@ -92,13 +92,6 @@
     /* ---------- activate a view ---------- */
     function show(id, fromHash) {
       if (!VIEWS[id]) id = DEFAULT_VIEW;
-      // external modules need first-party cookies (login). Open in a new tab
-      // instead of an iframe, where third-party cookies are blocked.
-      if (VIEWS[id].external) {
-        window.open(VIEWS[id].url, '_blank', 'noopener');
-        closeDrawer();
-        return;
-      }
       if (id === current) {
         closeDrawer();
         return;
@@ -140,6 +133,13 @@
   
     menuBtn.addEventListener('click', toggleDrawer);
     scrim.addEventListener('click', closeDrawer);
+  
+    // brand logo → back to first screen (OIL PULSE); also closes the mobile drawer
+    function goHome() { show('news'); }
+    brandHome.addEventListener('click', goHome);
+    brandHome.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); goHome(); }
+    });
   
     reloadBtn.addEventListener('click', function () {
       const m = mounted[current];
